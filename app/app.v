@@ -33,5 +33,5 @@ fn main() {
 
 ['/'; get]
 fn (mut app App) hello() vweb.Result {
-	return app.text('Welcome to TutLinks!')
+	return app.text('Welcome to TutLinks, Vweb CloudRun Deployment Demo!')
 }
