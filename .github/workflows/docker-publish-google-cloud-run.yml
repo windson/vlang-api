@@ -7,11 +7,11 @@ name: Docker Publish for GCP Cloud Run
 
 on:
   push:
-    branches: [ gcp-cloud-run-demo ]
+    branches: [ main ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ gcp-cloud-run-demo ]
+    branches: [ main ]
 
 env:
   # Use docker.io for Docker Hub if empty
