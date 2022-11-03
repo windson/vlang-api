@@ -1,21 +1,30 @@
 module main
 
 import vweb
-import sqlite
+import pg
+import os
+import zztkm.vdotenv
 
 struct App {
 	vweb.Context
 mut:
-	db sqlite.DB
+	db pg.DB
 }
 
 fn main() {
-	db := sqlite.connect('notes.db') or { panic(err) }
-	db.exec('drop table if exists Notes')
+	vdotenv.load('.env', '.env.develop')
+	mut db := pg.connect(
+		host: os.getenv('PG_HOST')
+		user: os.getenv('PG_USER')
+		password: os.getenv('PG_PASSWORD')
+		dbname: os.getenv('PG_DATABASE')
+		port: os.getenv('PG_PORT').int()
+	) or { panic(err) }
+	
 	sql db {
 		create table Note
 	}
-	http_port := 8080
+	http_port := os.getenv('PORT').int()
 	app := &App{
 		db: db
 	}
