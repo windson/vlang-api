@@ -7,17 +7,17 @@ name: Docker Publish for GCP Cloud Run
 
 on:
   push:
-    branches: [ "gcp-cloud-run-demo" ]
+    branches: [ gcp-cloud-run-demo ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "gcp-cloud-run-demo" ]
+    branches: [ gcp-cloud-run-demo ]
 
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: 'vlang-api-gcp-cloud-run-demo'
+  IMAGE_NAME: "vlang-api-gcp-cloud-run-demo"
 
 
 jobs:
