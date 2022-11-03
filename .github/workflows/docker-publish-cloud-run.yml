@@ -17,7 +17,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}-${{ github.branch }}
+  IMAGE_NAME: ${{ github.repository }}-gcp-cloud-run-demo
 
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
-      - name: Install cosign
+      - name: cosign-installer
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@v2.8.1
 
